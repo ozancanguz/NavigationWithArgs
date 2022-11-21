@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.ozancanguz.navigationwithargs.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_showInfoFragment"
+            app:destination="@id/showInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.ozancanguz.navigationwithargs.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_showInfoFragment"
+            app:destination="@id/showInfoFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            />
+        <argument
+            android:name="email"
+            app:argType="string"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/showInfoFragment"
+        android:name="com.ozancanguz.navigationwithargs.ShowInfoFragment"
+        android:label="fragment_show_info"
+        tools:layout="@layout/fragment_show_info" >
+        <argument
+            android:name="name"
+            app:argType="string"
+             />
+        <action
+            android:id="@+id/action_showInfoFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            />
+    </fragment>
+</navigation>
